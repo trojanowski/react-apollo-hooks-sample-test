@@ -1,1 +1,1 @@
-An example showing how to test components using [react-apollo-hooks](https://github.com/trojanowski/react-apollo-hooks).
+An example showing how to test components using [react-apollo-hooks](https://github.com/trojanowski/react-apollo-hooks). Please look at [`src/__tests__/Hello-test.js`](https://github.com/trojanowski/react-apollo-hooks-sample-test/blob/master/src/__tests__/Hello-test.js).
