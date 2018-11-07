@@ -36,10 +36,10 @@ function createClient(mocks) {
 }
 
 // Possible alternative implementations:
-// const waitToNextTick = () => new Promise(resolve => setImmediate(resolve));
-// const waitToNextTick = () =>
+// const waitForNextTick = () => new Promise(resolve => setImmediate(resolve));
+// const waitForNextTick = () =>
 //   new Promise(resolve => requestAnimationFrame(resolve));
-const waitToNextTick = () => new Promise(resolve => setTimeout(resolve));
+const waitForNextTick = () => new Promise(resolve => setTimeout(resolve));
 
 describe('<Hello />', () => {
   it('should render', async () => {
@@ -59,7 +59,7 @@ describe('<Hello />', () => {
     // https://github.com/facebook/react/issues/14050
     render(null);
     // We have to wait for the next tick for the queries to be fetched
-    await waitToNextTick();
+    await waitForNextTick();
     expect(container.textContent).toBe('World');
   });
 });
