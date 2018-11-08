@@ -1,9 +1,9 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import { useApolloQuery } from 'react-apollo-hooks';
+import { useQuery } from 'react-apollo-hooks';
 
 export default function Hello() {
-  const { data, error } = useApolloQuery(gql`
+  const { data, error } = useQuery(gql`
     query HelloQuery {
       hello
     }
