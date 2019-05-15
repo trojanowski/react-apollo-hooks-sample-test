@@ -2,7 +2,7 @@ import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo-hooks';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { MockLink } from 'apollo-link-mock';
-import React, { Suspense } from 'react';
+import React from 'react';
 import gql from 'graphql-tag';
 import { cleanup, render } from 'react-testing-library';
 
@@ -45,13 +45,11 @@ describe('<Hello />', () => {
   it('should render', async () => {
     const client = createClient(HELLO_MOCKS);
     const { container } = render(
-      <Suspense fallback={<div>Loading</div>}>
-        <ApolloProvider client={client}>
-          <Hello />
-        </ApolloProvider>
-      </Suspense>
+      <ApolloProvider client={client}>
+        <Hello />
+      </ApolloProvider>
     );
-    // Initially the suspense fallback is rendered
+    // Initially the loading fallback is rendered
     expect(container.textContent).toBe('Loading');
     // This line is required to run queued `useEffect` hooks until these issues
     // are solved:
